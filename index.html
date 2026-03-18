@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Michael Mejia — Commercial Photography</title>
+<meta name="description" content="Commercial photography for performance, process, and place. NYC · Miami · Medellín.">
+<link rel="canonical" href="https://www.michaelmejiaphoto.com">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Barlow:wght@300;400;500&family=Barlow+Condensed:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#111111;
+  --bg2:#1a1a1a;
+  --bg3:#222222;
+  --text:#e8e4de;
+  --text2:#888880;
+  --text3:#555550;
+  --accent:#c8b89a;
+  --border:#2a2a2a;
+  --border2:#333333;
+  --nav-h:64px;
+}
+html{scroll-behavior:smooth;font-size:16px}
+body{background:var(--bg);color:var(--text);font-family:'Barlow',sans-serif;font-weight:300;line-height:1.6;overflow-x:hidden;cursor:none}
+
+/* custom cursor */
+.cursor{position:fixed;width:8px;height:8px;background:var(--accent);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:transform 0.15s ease,opacity 0.15s ease;mix-blend-mode:normal}
+.cursor-ring{position:fixed;width:36px;height:36px;border:1px solid rgba(200,184,154,0.4);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:all 0.35s cubic-bezier(0.16,1,0.3,1)}
+body:hover .cursor{opacity:1}
+
+/* nav */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;height:var(--nav-h);display:flex;align-items:center;justify-content:space-between;padding:0 40px;border-bottom:1px solid transparent;transition:all 0.4s ease;background:transparent}
+nav.scrolled{background:rgba(17,17,17,0.96);border-bottom-color:var(--border);backdrop-filter:blur(8px)}
+.nav-logo{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:300;letter-spacing:0.12em;color:var(--text);text-decoration:none;cursor:none}
+.nav-links{display:flex;gap:36px;list-style:none}
+.nav-links a{font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:400;letter-spacing:0.18em;text-transform:uppercase;color:var(--text2);text-decoration:none;transition:color 0.2s;cursor:none}
+.nav-links a:hover,.nav-links a.active{color:var(--text)}
+
+/* hamburger */
+.nav-toggle{display:none;flex-direction:column;gap:5px;cursor:none;background:none;border:none;padding:4px}
+.nav-toggle span{display:block;width:24px;height:1px;background:var(--text);transition:all 0.3s ease}
+.nav-toggle.open span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+.nav-toggle.open span:nth-child(2){opacity:0}
+.nav-toggle.open span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+
+/* mobile nav drawer */
+.mobile-nav{display:none;position:fixed;top:var(--nav-h);left:0;right:0;bottom:0;background:rgba(17,17,17,0.98);z-index:99;flex-direction:column;align-items:center;justify-content:center;gap:40px}
+.mobile-nav.open{display:flex}
+.mobile-nav a{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:300;letter-spacing:0.06em;color:var(--text2);text-decoration:none;transition:color 0.2s;cursor:none}
+.mobile-nav a:hover{color:var(--text)}
+
+/* pages */
+.page{display:none;min-height:100vh}
+.page.active{display:block}
+
+/* ── HOME ── */
+#home{position:relative;overflow:hidden}
+.hero{position:relative;height:100vh;display:flex;flex-direction:column;justify-content:flex-end;padding:0 40px 52px}
+.hero-img{position:absolute;inset:0;overflow:hidden}
+.hero-img .img-slot{width:100%;height:100%;object-fit:cover;filter:brightness(0.7)}
+.img-placeholder{width:100%;height:100%;background:var(--bg3);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px;border:1px solid var(--border2)}
+.img-placeholder span{font-family:'Barlow Condensed',sans-serif;font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:var(--text3)}
+.img-placeholder strong{font-family:'Barlow Condensed',sans-serif;font-size:13px;letter-spacing:0.1em;color:var(--text2)}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(17,17,17,0.85) 0%,rgba(17,17,17,0.1) 60%,transparent 100%)}
+.hero-content{position:relative;z-index:2}
+.hero-name{font-family:'Cormorant Garamond',serif;font-size:clamp(42px,7vw,88px);font-weight:300;letter-spacing:0.04em;line-height:1;color:var(--text);margin-bottom:12px}
+.hero-tag{font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:400;letter-spacing:0.22em;text-transform:uppercase;color:var(--accent)}
+.hero-markets{position:absolute;right:40px;bottom:52px;text-align:right;z-index:2}
+.hero-markets span{display:block;font-family:'Barlow Condensed',sans-serif;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--text3);line-height:1.9}
+
+.home-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border)}
+.home-grid-item{position:relative;aspect-ratio:4/5;overflow:hidden;cursor:none}
+.home-grid-item .img-placeholder{position:absolute;inset:0;aspect-ratio:unset}
+.home-grid-item img{width:100%;height:100%;object-fit:cover;transition:transform 0.7s cubic-bezier(0.16,1,0.3,1)}
+.home-grid-item:hover img{transform:scale(1.04)}
+.grid-label{position:absolute;bottom:0;left:0;right:0;padding:20px;background:linear-gradient(to top,rgba(17,17,17,0.9),transparent);z-index:2}
+.grid-label-num{font-family:'Barlow Condensed',sans-serif;font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);margin-bottom:4px}
+.grid-label-name{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:300;letter-spacing:0.06em;color:var(--text)}
+.grid-cta{display:block;text-align:center;padding:28px;font-family:'Barlow Condensed',sans-serif;font-size:11px;letter-spacing:0.25em;text-transform:uppercase;color:var(--text3);cursor:none;background:var(--bg);border-top:1px solid var(--border);transition:color 0.2s}
+.grid-cta:hover{color:var(--text2)}
+
+/* ── WORK ── */
+#work{padding-top:var(--nav-h)}
+.work-header{padding:48px 40px 0;border-bottom:1px solid var(--border);display:flex;gap:0;overflow-x:auto;scrollbar-width:none}
+.work-header::-webkit-scrollbar{display:none}
+.tab-btn{flex-shrink:0;padding:20px 32px 20px 0;font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:400;letter-spacing:0.2em;text-transform:uppercase;color:var(--text3);background:none;border:none;border-bottom:1px solid transparent;margin-bottom:-1px;cursor:none;transition:all 0.2s;white-space:nowrap}
+.tab-btn:hover{color:var(--text2)}
+.tab-btn.active{color:var(--text);border-bottom-color:var(--accent)}
+.work-title-bar{padding:32px 40px 0}
+.work-title-bar h2{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,4vw,48px);font-weight:300;font-style:italic;letter-spacing:0.03em;color:var(--text)}
+.gallery{display:none;padding:40px}
+.gallery.active{display:block}
+.gallery-grid{columns:2;column-gap:1px;background:var(--border)}
+.gallery-item{break-inside:avoid;position:relative;overflow:hidden;margin-bottom:1px}
+.gallery-item .img-placeholder{aspect-ratio:4/3;position:relative;height:auto}
+.gallery-item:nth-child(3n+2) .img-placeholder{aspect-ratio:3/4}
+.gallery-item img{width:100%;display:block;transition:transform 0.7s cubic-bezier(0.16,1,0.3,1)}
+.gallery-item:hover img{transform:scale(1.03)}
+
+/* ── ABOUT ── */
+#about{padding-top:var(--nav-h)}
+.about-wrap{display:grid;grid-template-columns:1fr 1fr;min-height:calc(100vh - var(--nav-h))}
+.about-img{position:relative;overflow:hidden}
+.about-img .img-placeholder{position:absolute;inset:0;aspect-ratio:unset}
+.about-copy{padding:80px 60px;display:flex;flex-direction:column;justify-content:center;border-left:1px solid var(--border)}
+.about-label{font-family:'Barlow Condensed',sans-serif;font-size:10px;letter-spacing:0.25em;text-transform:uppercase;color:var(--accent);margin-bottom:32px}
+.about-name{font-family:'Cormorant Garamond',serif;font-size:clamp(32px,4vw,52px);font-weight:300;letter-spacing:0.04em;line-height:1.1;margin-bottom:40px;color:var(--text)}
+.about-mission{font-size:16px;font-weight:300;line-height:1.8;color:var(--text2);margin-bottom:48px;max-width:480px}
+.about-mission em{font-style:italic;color:var(--text)}
+.about-markets{margin-bottom:48px}
+.about-markets span{display:inline-block;font-family:'Barlow Condensed',sans-serif;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--text3);margin-right:24px}
+.about-markets span::before{content:'—  '}
+.about-cta{display:inline-block;font-family:'Barlow Condensed',sans-serif;font-size:11px;letter-spacing:0.22em;text-transform:uppercase;color:var(--text);border-bottom:1px solid var(--accent);padding-bottom:4px;text-decoration:none;cursor:none;transition:color 0.2s}
+.about-cta:hover{color:var(--accent)}
+
+/* ── CONTACT ── */
+#contact{padding-top:var(--nav-h);min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding-left:40px;padding-right:40px}
+.contact-wrap{display:grid;grid-template-columns:1fr 1fr;gap:80px;max-width:1100px;margin:0 auto;width:100%;padding:80px 0}
+.contact-left{}
+.contact-label{font-family:'Barlow Condensed',sans-serif;font-size:10px;letter-spacing:0.25em;text-transform:uppercase;color:var(--accent);margin-bottom:24px}
+.contact-head{font-family:'Cormorant Garamond',serif;font-size:clamp(32px,4vw,56px);font-weight:300;font-style:italic;letter-spacing:0.03em;line-height:1.1;margin-bottom:40px;color:var(--text)}
+.contact-info{margin-bottom:48px}
+.contact-info a,.contact-info span{display:block;font-family:'Barlow Condensed',sans-serif;font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:var(--text3);text-decoration:none;line-height:2.4;transition:color 0.2s;cursor:none}
+.contact-info a:hover{color:var(--text2)}
+.contact-avail{font-size:13px;font-weight:300;color:var(--text3);line-height:1.8}
+.contact-avail strong{color:var(--text2);font-weight:400}
+form{display:flex;flex-direction:column;gap:0}
+.field{margin-bottom:24px}
+.field label{display:block;font-family:'Barlow Condensed',sans-serif;font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--text3);margin-bottom:8px}
+.field input,.field textarea{width:100%;background:transparent;border:none;border-bottom:1px solid var(--border2);padding:10px 0;font-family:'Barlow',sans-serif;font-size:14px;font-weight:300;color:var(--text);outline:none;transition:border-color 0.2s;resize:none}
+.field input:focus,.field textarea:focus{border-bottom-color:var(--accent)}
+.field textarea{height:120px}
+.submit-btn{align-self:flex-start;margin-top:16px;font-family:'Barlow Condensed',sans-serif;font-size:11px;letter-spacing:0.25em;text-transform:uppercase;color:var(--bg);background:var(--accent);border:none;padding:14px 32px;cursor:none;transition:opacity 0.2s}
+.submit-btn:hover{opacity:0.85}
+
+/* footer */
+footer{border-top:1px solid var(--border);padding:24px 40px;display:flex;justify-content:space-between;align-items:center}
+footer span{font-family:'Barlow Condensed',sans-serif;font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--text3)}
+
+/* section separator */
+.sep{height:1px;background:var(--border);margin:0}
+
+/* animations */
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.fade-up{animation:fadeUp 0.7s cubic-bezier(0.16,1,0.3,1) both}
+.delay-1{animation-delay:0.1s}
+.delay-2{animation-delay:0.2s}
+.delay-3{animation-delay:0.3s}
+
+/* ── RESPONSIVE ── */
+@media(max-width:900px){
+  nav{padding:0 24px}
+  .nav-links{display:none}
+  .nav-toggle{display:flex}
+  .hero{padding:0 24px 40px}
+  .hero-markets{right:24px;bottom:40px}
+  .home-grid{grid-template-columns:1fr 1fr}
+  .work-header{padding:32px 24px 0}
+  .tab-btn{padding:16px 24px 16px 0}
+  .work-title-bar{padding:24px 24px 0}
+  .gallery{padding:24px}
+  .about-wrap{grid-template-columns:1fr}
+  .about-img{min-height:50vw;max-height:60vh}
+  .about-img .img-placeholder{position:relative;height:60vw;max-height:400px}
+  .about-copy{padding:48px 24px;border-left:none;border-top:1px solid var(--border)}
+  .contact-wrap{grid-template-columns:1fr;gap:48px;padding:48px 0}
+  .contact-head{font-size:32px}
+  footer{padding:20px 24px;flex-direction:column;gap:8px;text-align:center}
+}
+@media(max-width:600px){
+  .home-grid{grid-template-columns:1fr}
+  .gallery-grid{columns:1}
+  .hero-name{font-size:clamp(36px,10vw,56px)}
+  .about-copy{padding:36px 20px}
+  footer{padding:20px}
+}
+</style>
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<nav id="navbar">
+  <a class="nav-logo" href="#" onclick="showPage('home')">MM</a>
+  <ul class="nav-links">
+    <li><a href="#" onclick="showPage('home')" id="nav-home">Home</a></li>
+    <li><a href="#" onclick="showPage('work')" id="nav-work">Work</a></li>
+    <li><a href="#" onclick="showPage('about')" id="nav-about">About</a></li>
+    <li><a href="#" onclick="showPage('contact')" id="nav-contact">Contact</a></li>
+  </ul>
+  <button class="nav-toggle" id="navToggle" onclick="toggleMobileNav()">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="mobile-nav" id="mobileNav">
+  <a href="#" onclick="showPage('home');closeMobileNav()">Home</a>
+  <a href="#" onclick="showPage('work');closeMobileNav()">Work</a>
+  <a href="#" onclick="showPage('about');closeMobileNav()">About</a>
+  <a href="#" onclick="showPage('contact');closeMobileNav()">Contact</a>
+</div>
+
+<!-- ══ HOME ══ -->
+<div class="page active" id="home">
+  <div class="hero">
+    <div class="hero-img">
+      <!-- REPLACE: Active/Sport #4, PDF p.13 — cyclist + motorcycle, full bleed -->
+      <div class="img-placeholder">
+        <strong>Hero Image</strong>
+        <span>Active / Sport #4 — PDF p.13</span>
+        <span>Cyclist + motorcycle, full bleed</span>
+      </div>
+    </div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content fade-up">
+      <div class="hero-name">Michael Mejia</div>
+      <div class="hero-tag delay-1 fade-up">Commercial photography for performance, process &amp; place</div>
+    </div>
+    <div class="hero-markets fade-up delay-2">
+      <span>New York</span>
+      <span>Miami</span>
+      <span>Medellín</span>
+    </div>
+  </div>
+
+  <div class="home-grid">
+    <div class="home-grid-item" onclick="showPage('work');setTab('performance')">
+      <!-- REPLACE: Active/Sport #2 — PDF p.11 — Crossfit woman -->
+      <div class="img-placeholder">
+        <strong>Performance Lifestyle</strong>
+        <span>Active / Sport #2 — PDF p.11</span>
+      </div>
+      <div class="grid-label">
+        <div class="grid-label-num">01</div>
+        <div class="grid-label-name">Performance Lifestyle</div>
+      </div>
+    </div>
+    <div class="home-grid-item" onclick="showPage('work');setTab('makers')">
+      <!-- REPLACE: Technical/Industrial #1 — PDF p.6 — Machinist with headlamp -->
+      <div class="img-placeholder">
+        <strong>Makers &amp; Process</strong>
+        <span>Technical / Industrial #1 — PDF p.6</span>
+      </div>
+      <div class="grid-label">
+        <div class="grid-label-num">02</div>
+        <div class="grid-label-name">Makers &amp; Process</div>
+      </div>
+    </div>
+    <div class="home-grid-item" onclick="showPage('work');setTab('portraits')">
+      <!-- REPLACE: Technical/Industrial #8 — PDF p.26 — Woman, Rembrandt light -->
+      <div class="img-placeholder">
+        <strong>Brand Portraiture</strong>
+        <span>Technical / Industrial #8 — PDF p.26</span>
+      </div>
+      <div class="grid-label">
+        <div class="grid-label-num">03</div>
+        <div class="grid-label-name">Brand Portraiture</div>
+      </div>
+    </div>
+  </div>
+
+  <a class="grid-cta" href="#" onclick="showPage('work')">View Selected Work →</a>
+
+  <footer>
+    <span>© 2025 Michael Mejia</span>
+    <span>NYC · Miami · Medellín</span>
+  </footer>
+</div>
+
+<!-- ══ WORK ══ -->
+<div class="page" id="work">
+  <div class="work-header">
+    <button class="tab-btn active" id="tab-performance" onclick="setTab('performance')">Performance Lifestyle</button>
+    <button class="tab-btn" id="tab-makers" onclick="setTab('makers')">Makers &amp; Process</button>
+    <button class="tab-btn" id="tab-portraits" onclick="setTab('portraits')">Brand Portraiture</button>
+  </div>
+
+  <div class="work-title-bar">
+    <h2 id="work-title">Performance Lifestyle</h2>
+  </div>
+
+  <!-- Performance Lifestyle -->
+  <div class="gallery active" id="gallery-performance">
+    <div class="gallery-grid">
+      <!-- Hero: Active/Sport #4, PDF p.13 -->
+      <div class="gallery-item"><div class="img-placeholder"><strong>Active / Sport #4</strong><span>PDF p.13 — Cyclist, motorcycle</span></div></div>
+      <!-- Active/Sport #2, PDF p.11 -->
+      <div class="gallery-item"><div class="img-placeholder"><strong>Active / Sport #2</strong><span>PDF p.11 — Crossfit, bar</span></div></div>
+      <!-- Active/Sport #1, PDF p.10 -->
+      <div class="gallery-item"><div class="img-placeholder"><strong>Active / Sport #1</strong><span>PDF p.10 — Cyclists, open road</span></div></div>
+      <!-- Editorial/Narrative #1, PDF p.14 -->
+      <div class="gallery-item"><div class="img-placeholder"><strong>Editorial / Narrative #1</strong><span>PDF p.14 — Couple, SUV, mountains</span></div></div>
+      <!-- Editorial/Narrative #2, PDF p.15 -->
+      <div class="gallery-item"><div class="img-placeholder"><strong>Editorial / Narrative #2</strong><span>PDF p.15 — Man, cliff, apparel</span></div></div>
+      <!-- Editorial/Narrative #3, PDF p.16 -->
+      <div class="gallery-item"><div class="img-placeholder"><strong>Editorial / Narrative #3</strong><span>PDF p.16 — Woman, desert, golden hour</span></div></div>
+      <!-- Active/Sport #3, PDF p.12 -->
+      <div class="gallery-item"><div class="img-placeholder"><strong>Active / Sport #3</strong><span>PDF p.12 — Child skateboarder</span></div></div>
+    </div>
+  </div>
+
+  <!-- Makers & Process -->
+  <div class="gallery" id="gallery-makers">
+    <div class="gallery-grid">
+      <!-- Editorial/Narrative #18, PDF p.22 -->
+      <div class="gallery-item"><div class="img-placeholder"><strong>Editorial / Narrative #18</strong><span>PDF p.22 — Industrial workers, scale</span></div></div>
+      <!-- Technical/Industrial #1, PDF p.6 -->
+      <div class="gallery-item"><div class="img-placeholder"><strong>Technical / Industrial #1</strong><span>PDF p.6 — Machinist, headlamp</span></div></div>
+      <!-- Technical/Industrial #6, PDF p.24 -->
+      <div class="gallery-item"><div class="img-placeholder"><strong>Technical / Industrial #6</strong><span>PDF p.24 — Welding arc, No22</span></div></div>
+      <!-- Technical/Industrial #7, PDF p.25 -->
+      <div class="gallery-item"><div class="img-placeholder"><strong>Technical / Industrial #7</strong><span>PDF p.25 — Man sorting denim</span></div></div>
+      <!-- Technical/Industrial #2, PDF p.7 -->
+      <div class="gallery-item"><div class="img-placeholder"><strong>Technical / Industrial #2</strong><span>PDF p.7 — Artisan, mask, studio</span></div></div>
+      <!-- Technical/Industrial #4, PDF p.9 -->
+      <div class="gallery-item"><div class="img-placeholder"><strong>Technical / Industrial #4</strong><span>PDF p.9 — Hands, precision tool</span></div></div>
+      <!-- Technical/Industrial #5, PDF p.23 -->
+      <div class="gallery-item"><div class="img-placeholder"><strong>Technical / Industrial #5</strong><span>PDF p.23 — Woman, headphones, industrial</span></div></div>
+      <!-- Technical/Industrial #3, PDF p.8 -->
+      <div class="gallery-item"><div class="img-placeholder"><strong>Technical / Industrial #3</strong><span>PDF p.8 — Close detail, machinery</span></div></div>
+    </div>
+  </div>
+
+  <!-- Brand Portraiture -->
+  <div class="gallery" id="gallery-portraits">
+    <div class="gallery-grid">
+      <!-- Technical/Industrial #8, PDF p.26 -->
+      <div class="gallery-item"><div class="img-placeholder"><strong>Technical / Industrial #8</strong><span>PDF p.26 — Woman, Rembrandt, machinery</span></div></div>
+      <!-- Environmental Portraits #1, PDF p.27 -->
+      <div class="gallery-item"><div class="img-placeholder"><strong>Environmental Portraits #1</strong><span>PDF p.27 — Doctor, lab coat</span></div></div>
+      <!-- Environmental Portraits #2, PDF p.28 -->
+      <div class="gallery-item"><div class="img-placeholder"><strong>Environmental Portraits #2</strong><span>PDF p.28 — Woman, warm interior</span></div></div>
+      <!-- Environmental Portraits #4, PDF p.30 -->
+      <div class="gallery-item"><div class="img-placeholder"><strong>Environmental Portraits #4</strong><span>PDF p.30 — Man, moody, clean portrait</span></div></div>
+      <!-- Environmental Portraits #3, PDF p.29 -->
+      <div class="gallery-item"><div class="img-placeholder"><strong>Environmental Portraits #3</strong><span>PDF p.29 — Artisan hands, leather</span></div></div>
+      <!-- Editorial/Narrative #4, PDF p.17 -->
+      <div class="gallery-item"><div class="img-placeholder"><strong>Editorial / Narrative #4</strong><span>PDF p.17 — Woman, botanical, close portrait</span></div></div>
+      <!-- Technical/Industrial #16, PDF p.47 -->
+      <div class="gallery-item"><div class="img-placeholder"><strong>Technical / Industrial #16</strong><span>PDF p.47 — Woman, PATH station, fur</span></div></div>
+    </div>
+  </div>
+
+  <footer>
+    <span>© 2025 Michael Mejia</span>
+    <span>NYC · Miami · Medellín</span>
+  </footer>
+</div>
+
+<!-- ══ ABOUT ══ -->
+<div class="page" id="about">
+  <div class="about-wrap">
+    <div class="about-img">
+      <!-- REPLACE: Your own environmental self-portrait on location -->
+      <div class="img-placeholder">
+        <strong>Your Portrait</strong>
+        <span>Shoot this on location.</span>
+        <span>Not a selfie. Environmental.</span>
+      </div>
+    </div>
+    <div class="about-copy">
+      <div class="about-label">About</div>
+      <div class="about-name">Michael<br>Mejia</div>
+      <p class="about-mission">
+        I photograph people and places where <em>identity is built through work, movement, and material.</em>
+        My background in sociology and corporate film production means I approach every brief the way
+        a researcher approaches a subject—with genuine curiosity about what makes a brand's world
+        specific, not generic. The result is campaign imagery that art buyers can actually deploy:
+        commercially precise, editorially credible, and impossible to replicate in a studio.
+      </p>
+      <div class="about-markets">
+        <span>New York</span>
+        <span>Miami</span>
+        <span>Medellín</span>
+      </div>
+      <a class="about-cta" href="#" onclick="showPage('contact')">Start a conversation →</a>
+    </div>
+  </div>
+  <footer>
+    <span>© 2025 Michael Mejia</span>
+    <span>NYC · Miami · Medellín</span>
+  </footer>
+</div>
+
+<!-- ══ CONTACT ══ -->
+<div class="page" id="contact">
+  <div class="contact-wrap">
+    <div class="contact-left">
+      <div class="contact-label">Contact</div>
+      <div class="contact-head">Let's build<br>something real.</div>
+      <div class="contact-info">
+        <a href="mailto:michael@michaelmejiaphoto.com">michael@michaelmejiaphoto.com</a>
+        <a href="https://instagram.com/" target="_blank">@yourhandle</a>
+      </div>
+      <p class="contact-avail">
+        Available for <strong>commissioned campaigns</strong>,<br>
+        <strong>licensed archive use</strong>, and<br>
+        <strong>production consulting</strong>.<br><br>
+        Based in NYC, Miami, and Medellín.<br>
+        Available to travel.
+      </p>
+    </div>
+    <div class="contact-right">
+      <form onsubmit="handleSubmit(event)">
+        <div class="field">
+          <label>Name</label>
+          <input type="text" name="name" required placeholder="Your name">
+        </div>
+        <div class="field">
+          <label>Email</label>
+          <input type="email" name="email" required placeholder="your@email.com">
+        </div>
+        <div class="field">
+          <label>Project</label>
+          <input type="text" name="project" placeholder="Brand, campaign, or brief">
+        </div>
+        <div class="field">
+          <label>Message</label>
+          <textarea name="message" placeholder="Tell me what you're working on."></textarea>
+        </div>
+        <button type="submit" class="submit-btn">Send Message</button>
+        <div id="form-msg" style="margin-top:16px;font-size:13px;color:var(--accent);display:none">Message sent. I'll be in touch.</div>
+      </form>
+    </div>
+  </div>
+  <footer>
+    <span>© 2025 Michael Mejia</span>
+    <span>NYC · Miami · Medellín</span>
+  </footer>
+</div>
+
+<script>
+// cursor
+const cur=document.getElementById('cursor'),ring=document.getElementById('cursorRing');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px'});
+function animRing(){rx+=(mx-rx)*0.12;ry+=(my-ry)*0.12;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(animRing)}
+animRing();
+document.querySelectorAll('a,button,.home-grid-item,.gallery-item').forEach(el=>{
+  el.addEventListener('mouseenter',()=>{ring.style.transform='translate(-50%,-50%) scale(1.8)';ring.style.borderColor='rgba(200,184,154,0.7)'});
+  el.addEventListener('mouseleave',()=>{ring.style.transform='translate(-50%,-50%) scale(1)';ring.style.borderColor='rgba(200,184,154,0.4)'});
+});
+
+// scroll nav
+window.addEventListener('scroll',()=>{
+  document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>20)
+},{passive:true});
+
+// page routing
+function showPage(id){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  document.querySelectorAll('.nav-links a').forEach(a=>{a.classList.remove('active')});
+  const nl=document.getElementById('nav-'+id);
+  if(nl)nl.classList.add('active');
+  window.scrollTo({top:0,behavior:'instant'});
+  // animate
+  document.getElementById(id).querySelectorAll('.fade-up').forEach((el,i)=>{
+    el.style.animation='none';el.offsetHeight;el.style.animation='';
+  });
+}
+
+// tabs
+const tabTitles={'performance':'Performance Lifestyle','makers':'Makers & Process','portraits':'Brand Portraiture'};
+function setTab(id){
+  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+  document.querySelectorAll('.gallery').forEach(g=>g.classList.remove('active'));
+  document.getElementById('tab-'+id).classList.add('active');
+  document.getElementById('gallery-'+id).classList.add('active');
+  document.getElementById('work-title').textContent=tabTitles[id];
+}
+
+// mobile nav
+function toggleMobileNav(){
+  document.getElementById('navToggle').classList.toggle('open');
+  document.getElementById('mobileNav').classList.toggle('open');
+}
+function closeMobileNav(){
+  document.getElementById('navToggle').classList.remove('open');
+  document.getElementById('mobileNav').classList.remove('open');
+}
+
+// form
+function handleSubmit(e){
+  e.preventDefault();
+  const msg=document.getElementById('form-msg');
+  msg.style.display='block';
+  e.target.reset();
+  setTimeout(()=>msg.style.display='none',6000);
+}
+
+// prevent default on all internal hrefs
+document.querySelectorAll('a[href="#"]').forEach(a=>a.addEventListener('click',e=>e.preventDefault()));
+
+// init active nav
+document.getElementById('nav-home').classList.add('active');
+</script>
+</body>
+</html>
