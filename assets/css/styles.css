@@ -1,6 +1,6 @@
 /*
   Michael Mejia Website
-  Shared stylesheet for all pages
+  Shared stylesheet
   Plain CSS only
 */
 
@@ -412,6 +412,10 @@ button {
   overflow: clip;
 }
 
+.home-hero-photographic {
+  min-height: calc(100vh - var(--header-height));
+}
+
 .hero-media {
   position: absolute;
   inset: 0;
@@ -427,8 +431,8 @@ button {
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(180deg, rgba(8, 8, 9, 0.28) 0%, rgba(8, 8, 9, 0.34) 28%, rgba(8, 8, 9, 0.78) 100%),
-    linear-gradient(90deg, rgba(8, 8, 9, 0.82) 0%, rgba(8, 8, 9, 0.36) 48%, rgba(8, 8, 9, 0.14) 100%);
+    linear-gradient(180deg, rgba(8, 8, 9, 0.18) 0%, rgba(8, 8, 9, 0.22) 28%, rgba(8, 8, 9, 0.78) 100%),
+    linear-gradient(90deg, rgba(8, 8, 9, 0.78) 0%, rgba(8, 8, 9, 0.34) 44%, rgba(8, 8, 9, 0.14) 100%);
 }
 
 .hero-layout {
@@ -440,6 +444,10 @@ button {
   gap: 40px;
   min-height: calc(100vh - var(--header-height));
   padding: 72px 0 56px;
+}
+
+.hero-layout-photographic {
+  align-items: end;
 }
 
 .hero-copy {
@@ -456,17 +464,24 @@ button {
   letter-spacing: -0.04em;
 }
 
+.hero-copy-compact h1 {
+  max-width: 760px;
+  font-size: clamp(3.6rem, 8vw, 7rem);
+  line-height: 0.9;
+}
+
 .hero-intro {
-  margin-top: 26px;
-  max-width: 620px;
-  font-size: 1.06rem;
+  margin-top: 18px;
+  max-width: 560px;
+  font-size: 1.02rem;
+  color: rgba(242, 239, 232, 0.84);
 }
 
 .hero-actions {
   display: flex;
   flex-wrap: wrap;
   gap: 14px;
-  margin-top: 30px;
+  margin-top: 28px;
 }
 
 .hero-note {
@@ -477,9 +492,13 @@ button {
   border-top: 1px solid rgba(242, 239, 232, 0.3);
 }
 
+.hero-note-bottom {
+  max-width: 340px;
+}
+
 .hero-note p {
   margin: 0;
-  color: rgba(242, 239, 232, 0.66);
+  color: rgba(242, 239, 232, 0.7);
   font-family: var(--font-condensed);
   font-size: 0.86rem;
   letter-spacing: 0.1em;
@@ -878,10 +897,6 @@ button {
   background: var(--panel);
 }
 
-.gallery-item.is-tall {
-  grid-row: span 2;
-}
-
 .gallery-button {
   display: block;
   width: 100%;
@@ -1091,7 +1106,6 @@ button {
 .about-pillars h2,
 .about-availability h2,
 .contact-card h1,
-.contact-methods h2,
 .contact-panel h2,
 .not-found-copy h1 {
   margin: 0;
@@ -1341,9 +1355,10 @@ button {
     align-items: end;
   }
 
-  .hero-copy h1 {
-    font-size: clamp(3.2rem, 16vw, 5rem);
-    line-height: 0.9;
+  .hero-copy h1,
+  .hero-copy-compact h1 {
+    font-size: clamp(3.1rem, 14vw, 5rem);
+    line-height: 0.92;
   }
 
   .hero-intro {
