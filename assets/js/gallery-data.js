@@ -27,175 +27,175 @@ const GALLERY = {
   sports: [
     {
       src: "DSC02078.jpg",
-      alt: "Athlete in motion during a commercial sports photography shoot",
-      caption: "Movement, speed, and control."
+      alt: "Sports photography by Michael Mejia showing movement and athletic intensity",
+      caption: "Performance, timing, control."
     },
     {
       src: "_MMO4787.jpg",
-      alt: "Sports portrait with athletic energy and editorial lighting",
-      caption: "Performance with shape."
+      alt: "Commercial sports image with speed, force, and editorial structure",
+      caption: "Athletic energy with shape."
     },
     {
       src: "_MMO3996.jpg",
-      alt: "Commercial sports image showing training and physical intensity",
-      caption: "Real effort. Clean frame."
-    },
-    {
-      src: "_MMO4914.jpg",
-      alt: "Sports lifestyle portrait with active commercial feel",
-      caption: "Athletic energy without cliché."
-    },
-    {
-      src: "DSC03020-2.jpg",
-      alt: "Sports campaign image with strong movement and believable atmosphere",
+      alt: "Sports photograph rooted in training, discipline, and physical presence",
       caption: "Built around motion."
     },
     {
+      src: "_MMO4914.jpg",
+      alt: "Athlete portrait with commercial clarity and real physical atmosphere",
+      caption: "Presence under pressure."
+    },
+    {
+      src: "DSC03020-2.jpg",
+      alt: "Sports campaign image with movement and visual tension",
+      caption: "Movement with purpose."
+    },
+    {
       src: "DSC03231.jpg",
-      alt: "Editorial sports image with movement and tension",
-      caption: "Performance under pressure."
+      alt: "Editorial sports image with physicality and controlled composition",
+      caption: "Force, rhythm, restraint."
     },
     {
       src: "DSC03372.jpg",
-      alt: "Commercial athletic portrait with graphic composition",
-      caption: "Presence and pace."
+      alt: "Commercial athletic portrait with strong stance and motion energy",
+      caption: "Real pace. Clean frame."
     },
     {
       src: "_MMO4709.jpg",
-      alt: "Sports portrait showing physical energy in a real environment",
-      caption: "Athletic, grounded, direct."
+      alt: "Sports photography in a real environment with believable energy",
+      caption: "Performance that feels lived."
     }
   ],
 
   fashion: [
     {
       src: "_2792019.JPG",
-      alt: "Fashion editorial portrait with confident styling and presence",
-      caption: "Cast, wardrobe, attitude."
+      alt: "Fashion editorial portrait with style, cast presence, and control",
+      caption: "Style, cast, attitude."
     },
     {
       src: "66673353_379483099437090_188299833174321272_n.jpg",
-      alt: "Fashion portrait with editorial posture and clean composition",
-      caption: "Sharp and self-possessed."
-    },
-    {
-      src: "PXL_20210930_012417936_PORTRAIT.jpg",
-      alt: "Editorial fashion portrait photographed with a cinematic edge",
+      alt: "Fashion image with editorial posture and visual restraint",
       caption: "Editorial without excess."
     },
     {
+      src: "PXL_20210930_012417936_PORTRAIT.jpg",
+      alt: "Fashion portrait with cinematic composition and wardrobe focus",
+      caption: "Clothes, body, frame."
+    },
+    {
       src: "_MMO5594.JPG",
-      alt: "Commercial fashion image with modern styling and strong silhouette",
-      caption: "Shape, texture, restraint."
+      alt: "Commercial fashion photograph with shape, texture, and character",
+      caption: "Sharp but fully inhabited."
     },
     {
       src: "_MMO5837.jpg",
-      alt: "Fashion campaign image with wardrobe-led composition",
-      caption: "Built around styling."
+      alt: "Fashion campaign image with cast, styling, and image-led structure",
+      caption: "Wardrobe with purpose."
     },
     {
       src: "_MMO5485.jpg",
-      alt: "Editorial fashion photograph with premium natural atmosphere",
-      caption: "Polished, not overworked."
-    },
-    {
-      src: "_MMO5869.jpg",
-      alt: "Brand fashion image with confident cast and refined composition",
+      alt: "Editorial fashion image with premium atmosphere and controlled tone",
       caption: "Presence over noise."
     },
     {
+      src: "_MMO5869.jpg",
+      alt: "Fashion photograph with strong silhouette and cast-forward energy",
+      caption: "Clean line. Real attitude."
+    },
+    {
       src: "_MMO6005.jpg",
-      alt: "Fashion photograph with cinematic editorial mood",
-      caption: "Clean line, real attitude."
+      alt: "Commercial fashion image with mood, posture, and editorial pace",
+      caption: "Structured, not stiff."
     },
     {
       src: "_MMO6006.jpg",
-      alt: "Editorial campaign image with fashion-forward styling",
-      caption: "Elevated and believable."
+      alt: "Fashion image by Michael Mejia with editorial clarity and style-led composition",
+      caption: "Style with weight."
     },
     {
       src: "_MMO6050.jpg",
-      alt: "Fashion image showing cast, wardrobe, and premium visual control",
-      caption: "Deliberate, never generic."
+      alt: "Fashion photograph with cast direction and commercial precision",
+      caption: "Image-first fashion work."
     },
     {
       src: "_MMO5739.jpg",
-      alt: "Fashion editorial portrait with strong composition and cast presence",
-      caption: "Editorial edge with restraint."
+      alt: "Editorial fashion portrait with presence and visual control",
+      caption: "Fashion with point of view."
     }
   ],
 
   people: [
     {
       src: "PXL_20230222_231057446-01.jpeg",
-      alt: "Commercial portrait of a real person in a believable environment",
+      alt: "People-first commercial portrait in a real environment",
       caption: "Airbnb Foundation"
     },
     {
       src: "PXL_20230222_125059267_PORTRAIT.jpg",
-      alt: "Environmental portrait made for a people-first commercial assignment",
+      alt: "Environmental portrait with clarity, warmth, and commercial purpose",
       caption: "DaVita"
     },
     {
       src: "PXL_20230222_114224006.jpg",
-      alt: "Human-interest portrait with commercial clarity and warmth",
-      caption: "People-first, never generic."
+      alt: "Human-interest portrait with direct presence and believable atmosphere",
+      caption: "Person first."
     },
     {
       src: "PXL_20220912_190438963-01_2.jpeg",
-      alt: "Portrait of a subject in a real setting with natural credibility",
-      caption: "Observed, not overbuilt."
+      alt: "Portrait photograph with human presence and editorial restraint",
+      caption: "Attention, not performance."
     },
     {
       src: "MMO7677-_Edited.jpg",
-      alt: "Branded portrait with clean styling and direct presence",
-      caption: "Commercial portraiture."
+      alt: "Commercial portrait with personality, precision, and real texture",
+      caption: "Branded portraiture."
     },
     {
       src: "Phax3_copy.JPG",
-      alt: "Portrait image with strong personality and editorial framing",
-      caption: "Human presence with shape."
+      alt: "Portrait image with cast energy and image-led framing",
+      caption: "Presence with shape."
     },
     {
       src: "_MMO0793.jpg",
-      alt: "Editorial portrait that centers the subject without losing atmosphere",
-      caption: "People with weight."
+      alt: "Editorial portrait grounded in a specific person and place",
+      caption: "Clarity and credibility."
     },
     {
       src: "_2792019.JPG",
-      alt: "Commercial portrait with cast-forward framing and premium restraint",
-      caption: "Identity in frame."
+      alt: "Cast-forward commercial portrait with controlled atmosphere",
+      caption: "People with weight."
     }
   ],
 
   process: [
     {
       src: "fanalca-c1-154.jpg",
-      alt: "Industrial process image showing labor, machinery, and real production",
+      alt: "Process photography showing labor, machinery, and industrial work",
       caption: "Fanalca"
     },
     {
       src: "fanalca-c1-97-2.jpg",
-      alt: "Manufacturing environment photographed with emphasis on process and craft",
-      caption: "Process with texture."
+      alt: "Manufacturing environment photographed with attention to labor and material",
+      caption: "Labor, material, system."
     }
   ],
 
   curatedReality: [
     {
       src: "_MMO6145_Edited_Edited.jpg",
-      alt: "Authorial black and white image with cinematic documentary feeling",
+      alt: "Authorial black and white image with atmosphere and human presence",
       caption: "Curated Reality"
     },
     {
       src: "_MMO3869.jpg",
-      alt: "Observational image with real movement and poetic tension",
-      caption: "Personal, observant, precise."
+      alt: "Observational image shaped with restraint and a cinematic sensibility",
+      caption: "Observed, then held."
     },
     {
       src: "travel-guajira.jpeg",
-      alt: "Documentary-feeling portrait rooted in place and atmosphere",
-      caption: "Authorial work with air in it."
+      alt: "Personal observational portrait rooted in place, atmosphere, and point of view",
+      caption: "Atmosphere with intent."
     }
   ],
 
@@ -203,17 +203,17 @@ const GALLERY = {
     {
       src: "_MMO4787.jpg",
       folder: "sports",
-      alt: "Featured sports image from Michael Mejia"
+      alt: "Featured sports photograph by Michael Mejia"
     },
     {
       src: "_MMO6006.jpg",
       folder: "fashion",
-      alt: "Featured fashion image from Michael Mejia"
+      alt: "Featured fashion photograph by Michael Mejia"
     },
     {
       src: "PXL_20230222_231057446-01.jpeg",
       folder: "people",
-      alt: "Featured people image from Michael Mejia"
+      alt: "Featured people photograph by Michael Mejia"
     }
   ]
 };
